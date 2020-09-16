@@ -1,0 +1,9 @@
+# java Eclipse failes
+*.class
+.classpath
+.project
+.fatjar
+.properties
+.settings/
+record.txt
+getLogCmds.txt
