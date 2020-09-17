@@ -3,7 +3,7 @@
 .classpath
 .project
 .fatjar
-.properties
+*.properties
 .settings/
 record.txt
 getLogCmds.txt
