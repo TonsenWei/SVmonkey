@@ -92,6 +92,9 @@ import org.eclipse.wb.swt.SWTResourceManager;
 * 更新：
 * 2020年9月16日
 *     1、修复permissonPercent不保存的问题。
+* 2021年1月03日
+* 	  1、设置Touch和Motion事件默认各为50,
+*     2、增加rotaion参数配置。
 */
 public class SvMonkey {
 
@@ -199,9 +202,12 @@ public class SvMonkey {
 	
 	//设置
 	private static String endGetLogs = "";
+	private static String sendEmail = "";
 	private static String endTakePic = "";
 	private static String getLogCmdFilePath = System.getProperty("user.dir") + "\\getLogCmds.txt";
 	private Button btnbugreport;
+	private Label lblRotaionPercent;
+	private Text textRotaionPercent;
 	
 
 	
@@ -575,12 +581,12 @@ public class SvMonkey {
 		
 		Label lblTrackballPercent = new Label(grpMonkeySettings, SWT.NONE);
 		lblTrackballPercent.setText("Trackball Percent");
-		lblTrackballPercent.setBounds(444, 24, 108, 17);
+		lblTrackballPercent.setBounds(619, 116, 108, 17);
 		lblTrackballPercent.setToolTipText("轨迹事件的百分比(轨迹事件由一个或几个随机的移动组成，有时还伴随有点击)");
 		
 		Label lblAppswitchPercent = new Label(grpMonkeySettings, SWT.NONE);
 		lblAppswitchPercent.setText("AppSwitch Percent");
-		lblAppswitchPercent.setBounds(444, 47, 108, 17);
+		lblAppswitchPercent.setBounds(444, 93, 108, 17);
 		lblAppswitchPercent.setToolTipText("Activity启动事件百分比");
 		
 		Label lblFlipPercent = new Label(grpMonkeySettings, SWT.NONE);
@@ -590,7 +596,7 @@ public class SvMonkey {
 		
 		Label lblTouchPercent = new Label(grpMonkeySettings, SWT.NONE);
 		lblTouchPercent.setText("Touch Percent");
-		lblTouchPercent.setBounds(444, 93, 108, 17);
+		lblTouchPercent.setBounds(446, 24, 108, 17);
 		lblTouchPercent.setToolTipText("触摸事件的百分比(触摸事件是一个down-up事件)");
 		
 		Label lblSyskeyPercent = new Label(grpMonkeySettings, SWT.NONE);
@@ -599,7 +605,7 @@ public class SvMonkey {
 		lblSyskeyPercent.setToolTipText("系统按键事件的百分比(这些按键通常被保留，由系统使用，如Home、Back、Start Call、End Call及音量控制键)");
 		
 		textTrackballPercent = new Text(grpMonkeySettings, SWT.BORDER);
-		textTrackballPercent.setBounds(558, 23, 38, 18);
+		textTrackballPercent.setBounds(734, 116, 38, 18);
 		textTrackballPercent.addListener(SWT.FocusOut, new Listener() {    
 		    public void handleEvent(Event e) {    
 		    	// 处理失去焦点的事件 
@@ -609,7 +615,7 @@ public class SvMonkey {
 		});
 		
 		textAppswitchPercent = new Text(grpMonkeySettings, SWT.BORDER);
-		textAppswitchPercent.setBounds(558, 45, 38, 18);
+		textAppswitchPercent.setBounds(558, 90, 38, 18);
 		textAppswitchPercent.addListener(SWT.FocusOut, new Listener() {    
 		    public void handleEvent(Event e) {    
 		    	// 处理失去焦点的事件 
@@ -629,7 +635,7 @@ public class SvMonkey {
 		});
 		
 		textTouchPercent = new Text(grpMonkeySettings, SWT.BORDER);
-		textTouchPercent.setBounds(558, 92, 38, 18);
+		textTouchPercent.setBounds(558, 23, 38, 18);
 		textTouchPercent.addListener(SWT.FocusOut, new Listener() {    
 		    public void handleEvent(Event e) {    
 		    	// 处理失去焦点的事件 
@@ -673,7 +679,7 @@ public class SvMonkey {
 		
 		Label lblMotionPercent = new Label(grpMonkeySettings, SWT.NONE);
 		lblMotionPercent.setText("Motion Percent");
-		lblMotionPercent.setBounds(619, 116, 108, 17);
+		lblMotionPercent.setBounds(446, 47, 108, 17);
 		lblMotionPercent.setToolTipText("滑动事件的百分比(滑动事件由屏幕上某处的一个down事件、一系列的伪随机事件和一个up事件组成)");
 		
 		
@@ -1956,7 +1962,7 @@ public class SvMonkey {
             			String idStr = selectedTreeItem.getText();
             			currentDeviceId = idStr;
             			lblSelectedDevice.setText(currentDeviceId);
-            			updateConfigUi(idStr);
+            			updateConfigUi(currentDeviceId);
             			new Thread(new Runnable() {//在设备ID上单击鼠标则获取设备信息
 							@Override
 							public void run() {
@@ -2393,7 +2399,7 @@ public class SvMonkey {
 		});
 		
 		textAnyeventPercent = new Text(grpMonkeySettings, SWT.BORDER);
-		textAnyeventPercent.setBounds(734, 23, 38, 18);
+		textAnyeventPercent.setBounds(734, 21, 38, 18);
 		textAnyeventPercent.addListener(SWT.FocusOut, new Listener() {    
 		    public void handleEvent(Event e) {    
 		    	// 处理失去焦点的事件 
@@ -2433,7 +2439,7 @@ public class SvMonkey {
 		});
 		
 		textMotionPercent = new Text(grpMonkeySettings, SWT.BORDER);
-		textMotionPercent.setBounds(734, 115, 38, 18);
+		textMotionPercent.setBounds(558, 46, 38, 18);
 		textMotionPercent.addListener(SWT.FocusOut, new Listener() {    
 		    public void handleEvent(Event e) {    
 		    	// 处理失去焦点的事件 
@@ -2603,6 +2609,22 @@ public class SvMonkey {
 			}
 		});
 		
+		lblRotaionPercent = new Label(grpMonkeySettings, SWT.NONE);
+		lblRotaionPercent.setToolTipText("轨迹事件的百分比(轨迹事件由一个或几个随机的移动组成，有时还伴随有点击)");
+		lblRotaionPercent.setText("Rotaion Percent");
+		lblRotaionPercent.setBounds(619, 139, 108, 17);
+		
+		textRotaionPercent = new Text(grpMonkeySettings, SWT.BORDER);
+		textRotaionPercent.setBounds(734, 139, 38, 18);
+		textRotaionPercent.addListener(SWT.FocusOut, new Listener() {    
+		    public void handleEvent(Event e) {    
+		    	// 处理失去焦点的事件 
+		    	String rotationStr = textRotaionPercent.getText();
+				PropUtil.setMonkeyParameter(currentDeviceId, PropUtil.ROTATION_PERCENT, rotationStr);
+		    }    
+		});
+
+		
 		textTrace.setLayoutData(fd_textTrace);
 		textTrace.setEditable(false);
 		textTrace.addKeyListener(new KeyAdapter() {
@@ -2683,7 +2705,7 @@ public class SvMonkey {
 		statusLineManager.setMessage("testLine");
 		//TODO:
 //		shlSvMonkey.setSize(Integer.parseInt(saveShellWidth), Integer.parseInt(saveShellHeight));
-		shlSvMonkey.setText("SVmonkey(By CT_ITC_AD_HZ_ST)");
+		shlSvMonkey.setText("SVmonkey(By Tonsen)");
 		shlSvMonkey.addControlListener(new ControlListener() {
 			public void controlMoved(ControlEvent e) {
 //				MyUtils.printWithTimeMill("窗口位置移动了");
@@ -2794,7 +2816,7 @@ public class SvMonkey {
 			    //设置对话框的标题
 			    box.setText("关于");
 			    //设置对话框显示的消息
-			    box.setMessage("版本：V3.30 \r\n日期：2019-07-27\r\n有问题或建议请联系 : Tonsen \r\n微信:TonsenWei \r\n QQ:470029260");
+			    box.setMessage("版本：V3.50 \r\n日期：2020-01-03\r\n有问题或建议请联系 : Tonsen \r\n微信:TonsenWei \r\n QQ:470029260");
 			    //打开对话框
 			    box.open();
 			}
@@ -3413,6 +3435,10 @@ public class SvMonkey {
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.FLIP_PERCENT, propFilePath);
 		textFlipPercent.setText(valuePropStr);
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.TOUCH_PERCENT, propFilePath);
+		if (valuePropStr == null || valuePropStr.equals("")) {
+			valuePropStr = "50";
+			PropUtil.setProperties(propFilePath, PropUtil.TOUCH_PERCENT, "50", true);
+		}
 		textTouchPercent.setText(valuePropStr);
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.SYS_KEY_PERCENT, propFilePath);
 		textSyskeyPercent.setText(valuePropStr);
@@ -3425,6 +3451,10 @@ public class SvMonkey {
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.MAJOR_NAV_PERCENT, propFilePath);
 		textMajornavPercent.setText(valuePropStr);
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.MOTION_PERCENT, propFilePath);
+		if (valuePropStr == null || valuePropStr.equals("")) {
+			valuePropStr = "50";
+			PropUtil.setProperties(propFilePath, PropUtil.MOTION_PERCENT, "50", true);
+		}
 		textMotionPercent.setText(valuePropStr);
 		
 		lblCostTimeShow.setText(MyUtils.millisToTimeMinuteCn(eventCountL * millTimeL));
@@ -5328,8 +5358,15 @@ public class SvMonkey {
     		if (endGetLogs != null && !endGetLogs.equals("")) {
     			
     		} else {
-    			PropUtil.setProperties(settingsPropPath, "failPlayNotification", "false", true);
+    			PropUtil.setProperties(settingsPropPath, "endGetLogs", "false", true);
     			endGetLogs = "false";
+    		}
+    		sendEmail = PropUtil.getValueOfProp("sendEmail", settingsPropPath);
+    		if (sendEmail != null && !sendEmail.equals("")) {
+    			
+    		} else {
+    			PropUtil.setProperties(settingsPropPath, "sendEmail", "false", true);
+    			sendEmail = "false";
     		}
     		endTakePic = PropUtil.getValueOfProp("endTakePic", settingsPropPath);
     		if (endTakePic != null && !endTakePic.equals("")) {

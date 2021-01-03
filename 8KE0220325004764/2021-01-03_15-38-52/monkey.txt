@@ -1,0 +1,163 @@
+  bash arg: --pct-touch
+  bash arg: 50
+  bash arg: --pct-motion
+  bash arg: 50
+  bash arg: -s
+  bash arg: 0
+  bash arg: -v
+  bash arg: -v
+  bash arg: -v
+  bash arg: --throttle
+  bash arg: 300
+  bash arg: --bugreport
+  bash arg: 10
+args: [--pct-touch, 50, --pct-motion, 50, -s, 0, -v, -v, -v, --throttle, 300, --bugreport, 10]
+ arg: "--pct-touch"
+ arg: "50"
+ arg: "--pct-motion"
+ arg: "50"
+ arg: "-s"
+ arg: "0"
+ arg: "-v"
+ arg: "-v"
+ arg: "-v"
+ arg: "--throttle"
+ arg: "300"
+ arg: "--bugreport"
+ arg: "10"
+arg="--pct-touch" mCurArgData="null" mNextArg=1 argwas="--pct-touch" nextarg="50"
+data="50"
+arg="--pct-motion" mCurArgData="null" mNextArg=3 argwas="--pct-motion" nextarg="50"
+data="50"
+data="0"
+arg="--throttle" mCurArgData="null" mNextArg=10 argwas="--throttle" nextarg="300"
+data="300"
+arg="--bugreport" mCurArgData="null" mNextArg=12 argwas="--bugreport" nextarg="10"
+:Monkey: seed=1609750349748 count=10
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Selecting main activities from category android.intent.category.LAUNCHER
+//   + Using main activity com.android.calendar.AllInOneActivity (from package com.android.calendar)
+//   + Using main activity com.android.contacts.activities.PeopleActivity (from package com.android.contacts)
+//   + Using main activity com.android.contacts.activities.DialtactsActivity (from package com.android.contacts)
+//   + Using main activity com.android.deskclock.AlarmsMainActivity (from package com.android.deskclock)
+//   + Using main activity com.android.email.activity.Welcome (from package com.android.email)
+//   + Using main activity com.huawei.gallery.app.GalleryMain (from package com.android.gallery3d)
+//   + Using main activity com.android.mediacenter.PageActivity (from package com.android.mediacenter)
+//   + Using main activity com.android.mms.ui.ConversationList (from package com.android.mms)
+//   + Using main activity com.android.settings.HWSettings (from package com.android.settings)
+//   + Using main activity com.example.android.notepad.NotePadActivity (from package com.example.android.notepad)
+//   + Using main activity com.huawei.android.findmyphone.ui.findphone.FindMyPhoneActivity (from package com.huawei.android.findmyphone)
+//   + Using main activity com.huawei.android.tips.DrawerDisplayActivity (from package com.huawei.android.tips)
+//   + Using main activity com.huawei.browser.Main2 (from package com.huawei.browser)
+//   + Using main activity com.huawei.camera (from package com.huawei.camera)
+//   + Using main activity com.huawei.gamebox.GameBoxActivity (from package com.huawei.gamebox)
+//   + Using main activity com.huawei.hidisk.filemanager.FileManager (from package com.huawei.hidisk)
+//   + Using main activity com.huawei.himovie.ui.login.SplashScreenActivity (from package com.huawei.himovie)
+//   + Using main activity com.huawei.skytone.account.welcome.SplashActivity (from package com.huawei.hiskytone)
+//   + Using main activity com.chaozh.iReader.ui.activity.WelcomeActivity (from package com.huawei.hwireader)
+//   + Using main activity com.huawei.vassistant.ui.main.VAssistantActivity (from package com.huawei.vassistant)
+//   + Using main activity com.achievo.vipshop.activity.LodingActivity (from package com.achievo.vipshop)
+//   + Using main activity com.sankuai.meituan.activity.PreloadedWelcome (from package com.sankuai.meituan)
+//   + Using main activity com.android.documentsui.LauncherActivity (from package com.android.documentsui)
+//   + Using main activity com.android.soundrecorder.RecordListActivity (from package com.android.soundrecorder)
+//   + Using main activity com.android.stk.StkLauncherActivity (from package com.android.stk)
+//   + Using main activity com.android.stk.StkLauncherActivity2 (from package com.android.stk)
+//   + Using main activity com.huawei.android.clone.activity.sender.ChooseReceiveSendActivity (from package com.hicloud.android.clone)
+//   + Using main activity com.android.systemui.flashlight.FlashlightActivity (from package com.huawei.HwMultiScreenShot)
+//   + Using main activity com.huawei.android.hwouc.ui.activities.MainEntranceActivity (from package com.huawei.android.hwouc)
+//   + Using main activity com.huawei.android.thememanager.HwThemeManagerActivity (from package com.huawei.android.thememanager)
+//   + Using main activity com.huawei.android.totemweather.WeatherHome (from package com.huawei.android.totemweather)
+//   + Using main activity com.huawei.appmarket.MainActivity (from package com.huawei.appmarket)
+//   + Using main activity com.huawei.calculator.Calculator (from package com.huawei.calculator)
+//   + Using main activity com.huawei.ahdp.wi.WIActivity (from package com.huawei.cloud)
+//   + Using main activity com.huawei.compass.MainActivity (from package com.huawei.compass)
+//   + Using main activity com.huawei.fans.SplashActivity (from package com.huawei.fans)
+//   + Using main activity com.huawei.gameassistant.views.GameassistantMainActivity (from package com.huawei.gameassistant)
+//   + Using main activity com.huawei.health.MainActivity (from package com.huawei.health)
+//   + Using main activity com.huawei.hwvplayer.framework.MainActivity (from package com.huawei.hwvplayer.youku)
+//   + Using main activity com.huawei.lifeservice.basefunction.ui.entry.LandingActivity (from package com.huawei.lives)
+//   + Using main activity com.huawei.mirror.Mirror (from package com.huawei.mirror)
+//   + Using main activity com.huawei.mycenter.module.main.view.MainActivity (from package com.huawei.mycenter)
+//   + Using main activity com.huawei.phoneservice.LaunchActivity (from package com.huawei.phoneservice)
+//   + Using main activity com.huawei.smarthome.login.LauncherActivity (from package com.huawei.smarthome)
+//   + Using main activity com.huawei.systemmanager.mainscreen.MainScreenActivity (from package com.huawei.systemmanager)
+//   + Using main activity com.huawei.wallet.view.MainActivity (from package com.huawei.wallet)
+//   + Using main activity com.microsoft.translator.activity.SplashActivity (from package com.microsoft.translator)
+//   + Using main activity com.vmall.client.splash.fragment.SplashActivity (from package com.vmall.client)
+//   + Using main activity cn.wps.moffice.documentmanager.PreStartActivity (from package cn.wps.moffice_eng)
+//   + Using main activity com.UCMobile.main.UCMobile (from package com.UCMobile)
+//   + Using main activity com.alibaba.android.rimet.biz.LaunchHomeActivity (from package com.alibaba.android.rimet)
+//   + Using main activity com.autonavi.map.activity.SplashActivity (from package com.autonavi.minimap)
+//   + Using main activity com.baidu.carlife.CarlifeActivity (from package com.baidu.carlife)
+//   + Using main activity com.baidu.searchbox.SplashActivity (from package com.baidu.searchbox)
+//   + Using main activity com.benqu.wuta.activities.splash.SplashActivity (from package com.benqu.wuta)
+//   + Using main activity com.booking.startup.HomeActivity (from package com.booking)
+//   + Using main activity com.buscode.whatsinput.SettingsActivity (from package com.buscode.whatsinput)
+//   + Using main activity com.chery.telematicnew.login.activity.TspLoadingActivity (from package com.chery.zhiyunhulian.assistant)
+//   + Using main activity com.eg.android.AlipayGphone.AlipayLogin (from package com.eg.android.AlipayGphone)
+//   + Using main activity com.github.uiautomator.MainActivity (from package com.github.uiautomator)
+//   + Using main activity com.jingdong.app.mall.main.MainActivity (from package com.jingdong.app.mall)
+//   + Using main activity com.netease.cloudmusic.activity.LoadingActivity (from package com.netease.cloudmusic)
+//   + Using main activity com.qiyi.video.WelcomeActivity (from package com.qiyi.video)
+//   + Using main activity com.sina.news.module.launch.activity.PowerOnScreen (from package com.sina.news)
+//   + Using main activity com.sina.weibo.SplashActivity (from package com.sina.weibo)
+//   + Using main activity com.ss.android.article.news.activity.LaunchActivity (from package com.ss.android.article.news)
+//   + Using main activity com.ss.android.ugc.aweme.splash.AliasSplashActivity (from package com.ss.android.ugc.aweme)
+//   + Using main activity com.suning.mobile.ebuy.host.InitialActivity (from package com.suning.mobile.ebuy)
+//   + Using main activity com.eg.android.AlipayGphone.AlipayLogin (from package com.taobao.mobile.dipei)
+//   + Using main activity com.taobao.tao.welcome.Welcome (from package com.taobao.taobao)
+//   + Using main activity com.tencent.mm.ui.LauncherUI (from package com.tencent.mm)
+//   + Using main activity com.tianyancha.skyeye.activity.SplashActivity (from package com.tianyancha.skyeye)
+//   + Using main activity com.wuba.activity.launch.LaunchActivity (from package com.wuba)
+//   + Using main activity com.ximalaya.ting.android.host.activity.WelComeActivity (from package com.ximalaya.ting.android)
+//   + Using main activity com.xingin.xhs.preload.EmptySplashActivity (from package com.xingin.xhs)
+//   + Using main activity ctrip.android.view.view.CtripDeclarationActivity (from package ctrip.android.view)
+// Selecting main activities from category android.intent.category.MONKEY
+//   + Using main activity com.android.emergency.view.ViewInfoActivity (from package com.android.emergency)
+//   + Using main activity com.android.phone.MobileNetworkSettings (from package com.android.phone)
+//   + Using main activity com.android.phone.MSimCallFeaturesSetting (from package com.android.phone)
+//   + Using main activity com.android.phone.MSimMobileNetworkSettings (from package com.android.phone)
+//   + Using main activity com.android.phone.CallFeaturesSetting (from package com.android.phone)
+//   + Using main activity com.android.settings.Settings$RunningServicesActivity (from package com.android.settings)
+//   + Using main activity com.android.settings.Settings$StorageUseActivity (from package com.android.settings)
+//   + Using main activity com.huawei.android.launcher.unihome.UniHomeLauncher (from package com.huawei.android.launcher)
+//   + Using main activity com.huawei.dsdscardmanager.HWCardManagerActivity (from package com.huawei.dsdscardmanager)
+//   + Using main activity com.huawei.parentcontrol.ui.activity.HomeActivity (from package com.huawei.parentcontrol)
+//   + Using main activity com.android.emergency.settings.SosEmergencyContactSettings (from package com.android.emergency)
+//   + Using main activity com.huawei.KoBackup.InitializeActivity (from package com.huawei.KoBackup)
+//   + Using main activity com.huawei.android.FloatTasks.settings.FloatTaskSuggestionSettings (from package com.huawei.android.FloatTasks)
+// Seeded: 1609750349748
+// Event percentages:
+//   0: 50.0%
+//   1: 50.0%
+//   2: 0.0%
+//   3: 0.0%
+//   4: -0.0%
+//   5: -0.0%
+//   6: 0.0%
+//   7: 0.0%
+//   8: 0.0%
+//   9: 0.0%
+//   10: 0.0%
+//   11: 0.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.android.phone/.CallFeaturesSetting;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.phone/.CallFeaturesSetting } in package com.android.phone
+Sleeping for 300 milliseconds
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.phone/.MSimCallFeaturesSetting } in package com.android.phone
+    // activityResuming(com.android.phone)
+:Sending Touch (ACTION_DOWN): 0:(765.0,1212.0)
+:Sending Touch (ACTION_MOVE): 0:(756.03094,1209.3081)
+:Sending Touch (ACTION_MOVE): 0:(753.03064,1204.2982)
+:Sending Touch (ACTION_MOVE): 0:(749.9698,1198.3247)
+:Sending Touch (ACTION_MOVE): 0:(738.19965,1194.9695)
+:Sending Touch (ACTION_MOVE): 0:(732.8324,1194.7056)
+:Sending Touch (ACTION_UP): 0:(722.15656,1192.5432)
+Sleeping for 300 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(374.0,598.0)
+:Sending Touch (ACTION_MOVE): 0:(391.04916,599.2212)
+Events injected: 10
+:Sending rotation degree=0, persist=false
+:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0
+## Network stats: elapsed time=657ms (0ms mobile, 0ms wifi, 657ms not connected)
+// Monkey finished

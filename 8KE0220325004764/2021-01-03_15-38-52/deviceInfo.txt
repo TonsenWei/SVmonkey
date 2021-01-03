@@ -1,0 +1,10 @@
+testStartTime=2021-01-03 15:38:52
+ro.product.model=ELE-AL00
+ro.build.display.id=ELE-AL00 10.1.0.162(C00E160R2P11)
+ro.build.version.release=10
+ro.build.date=Mon Jul 13 11:57:37 CST 2020
+ro.build.version.sdk=29
+monkeyCmdStr=adb -s 8KE0220325004764 shell monkey --pct-touch 50 --pct-motion 50 -s 0 -v -v -v --throttle 300 --bugreport 10 
+logcatPath=D:\Users\uidq0460\workspace\SVmonkey\8KE0220325004764\2021-01-03_15-38-52\logcat.txt
+MonkeySeed=1609750349748
+TestCostTime=1476

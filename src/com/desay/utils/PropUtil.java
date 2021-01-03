@@ -44,7 +44,8 @@ public class PropUtil {
 	public static final String PERMISSION_PERCENT = "permissionPercent";		           
 	
 	public static final String MAJOR_NAV_PERCENT = "majorNavPercent";		            
-	public static final String MOTION_PERCENT = "motionPercent";		            
+	public static final String MOTION_PERCENT = "motionPercent";			            
+	public static final String ROTATION_PERCENT = "rotationPercent";		            
 	public static final String IS_IGNORE_CRASHES = "isIgnoreCrashes";		            
 	public static final String IS_IGNORE_TIMEOUTS = "isIgnoreTimeouts";		           
 	public static final String IS_IGNORE_SECURITY_EXCEPTIONS = "isIgnoreSecurityExceptions";		           
@@ -499,7 +500,7 @@ public class PropUtil {
 	 */
 	public static String getDevicePropFilePath(String deviceStr) {
 		String deviceStrTran = "";
-		if(deviceStr.contains(":")){//网络adb的方式,则目录不能包含点和冒号，所以要转换为下划线和横杠
+		if(deviceStr.contains(":")){//网络adb的方式,因目录不能包含点和冒号，所以要转换为下划线和横杠
 			deviceStrTran = deviceStr.replace(".", "-");
 			deviceStrTran = deviceStrTran.replace(":", "_");
 		} else {
@@ -628,6 +629,12 @@ public class PropUtil {
 	}
 	
 	
+    /**
+     * 从配置文件获取记录的参数
+     * @param deviceId
+     * @param seedStr
+     * @return
+     */
     public static String getMonkeyConfigString(String deviceId, String seedStr) {
 		String propFilePath = PropUtil.getDevicePropFilePath(deviceId);
 		
@@ -708,6 +715,11 @@ public class PropUtil {
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.MOTION_PERCENT, propFilePath);
 		if (valuePropStr != null && !valuePropStr.equals("")) {
 			monkeyCmdStr += ("--pct-motion " + valuePropStr + " ");
+		}
+		//ROTATION_PERCENT
+		valuePropStr = PropUtil.getValueOfProp(PropUtil.ROTATION_PERCENT, propFilePath);
+		if (valuePropStr != null && !valuePropStr.equals("")) {
+			monkeyCmdStr += ("--pct-rotation " + valuePropStr + " ");
 		}
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.PERMISSION_PERCENT, propFilePath);
 		if (valuePropStr != null && !valuePropStr.equals("")) {
@@ -819,6 +831,10 @@ public class PropUtil {
 		PropUtil.setProperties(savePath, PropUtil.MAJOR_NAV_PERCENT, valuePropStr, true);
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.MOTION_PERCENT, propFilePath);
 		PropUtil.setProperties(savePath, PropUtil.MOTION_PERCENT, valuePropStr, true);
+		
+		valuePropStr = PropUtil.getValueOfProp(PropUtil.ROTATION_PERCENT, propFilePath);
+		PropUtil.setProperties(savePath, PropUtil.ROTATION_PERCENT, valuePropStr, true);
+		
 		valuePropStr = PropUtil.getValueOfProp(PropUtil.MOTION_PERCENT, propFilePath);
 		PropUtil.setProperties(savePath, PropUtil.MOTION_PERCENT, valuePropStr, true);
 		
@@ -887,6 +903,8 @@ public class PropUtil {
 		PropUtil.setProperties(propFilePath, PropUtil.MAJOR_NAV_PERCENT, valuePropStr, true);
 		valuePropStr = getValueOfProp(PropUtil.MOTION_PERCENT, importPath);
 		PropUtil.setProperties(propFilePath, PropUtil.MOTION_PERCENT, valuePropStr, true);
+		valuePropStr = getValueOfProp(PropUtil.ROTATION_PERCENT, importPath);
+		PropUtil.setProperties(propFilePath, PropUtil.ROTATION_PERCENT, valuePropStr, true);
 	}
 	
 }

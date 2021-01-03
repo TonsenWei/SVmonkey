@@ -40,6 +40,7 @@ public class Settings {
 	private String settingsPropFilePath = "";//配置文件路径
 	
 	private String endGetLogs = "";
+	private String sendEmail = "";
 	private String endTakePic = "";
 	private String getLogCmdFilePath = System.getProperty("user.dir") + "\\getLogCmds.txt";
 	
@@ -54,6 +55,12 @@ public class Settings {
 			} else {
 				PropUtil.setProperties(settingsPropFilePath, "endGetLogs", "false", true);
 				endGetLogs = "false";
+			}
+			sendEmail = PropUtil.getValueOfProp("sendEmail", settingsPropFilePath);
+			if (sendEmail != null && !sendEmail.equals("")) {
+			} else {
+				PropUtil.setProperties(settingsPropFilePath, "sendEmail", "false", true);
+				sendEmail = "false";
 			}
 			endTakePic = PropUtil.getValueOfProp("endTakePic", settingsPropFilePath);
 			if (endTakePic != null && !endTakePic.equals("")) {
@@ -139,6 +146,10 @@ public class Settings {
 					if (endGetLogs != null && !endGetLogs.equals("")) {
 						//失败播放通知
 						PropUtil.setProperties(settingsPropFilePath, "endGetLogs", endGetLogs, true);
+					}
+					if (sendEmail != null && !sendEmail.equals("")) {
+						//失败播放通知
+						PropUtil.setProperties(settingsPropFilePath, "sendEmail", sendEmail, true);
 					}
 					if (endTakePic != null && !endTakePic.equals("")) {
 						//是否一致播放
@@ -324,85 +335,46 @@ public class Settings {
 						WinUtil.openDir(logCmdFile.getParent());
 					}
 				});
-//				buttonTwo.setLayoutData(gridDataButton);
-//				final Button buttonThree = new Button(group, SWT.RADIO);
-//				buttonThree.setText("铃声3");
-//				buttonThree.setLayoutData(gridDataButton);
-//				buttonThree.addSelectionListener(new SelectionAdapter() {
-//					@Override
-//					public void widgetSelected(SelectionEvent e) {
-//						if (buttonThree.getSelection()) {
-//							ringType = "ring3";
-//						}
-//					}
-//				});
-//				final Button buttonFour = new Button(group, SWT.RADIO);
-//				buttonFour.setText("铃声4");
-//				buttonFour.setLayoutData(gridDataButton);
-//				buttonFour.addSelectionListener(new SelectionAdapter() {
-//					@Override
-//					public void widgetSelected(SelectionEvent e) {
-//						if (buttonFour.getSelection()) {
-//							ringType = "ring4";
-//						}
-//					}
-//				});
-//				if (ringType.equals("ring1")) {
-//					buttonOne.setSelection(true);
-//					buttonTwo.setSelection(false);
-//					buttonThree.setSelection(false);
-//					buttonFour.setSelection(false);
-//				} else if (ringType.equals("ring2")) {
-//					buttonOne.setSelection(false);
-//					buttonTwo.setSelection(true);
-//					buttonThree.setSelection(false);
-//					buttonFour.setSelection(false);
-//				} else if (ringType.equals("ring3")) {
-//					buttonOne.setSelection(false);
-//					buttonTwo.setSelection(false);
-//					buttonThree.setSelection(true);
-//					buttonFour.setSelection(false);
-//				} else if (ringType.equals("ring4")) {
-//					buttonOne.setSelection(false);
-//					buttonTwo.setSelection(false);
-//					buttonThree.setSelection(false);
-//					buttonFour.setSelection(true);
-//				}
 			}
 		}
 
-//		{
-//			final Group groupPlayTime = new Group(comp1, SWT.NONE);
-//			groupPlayTime.setText("通知铃声播放时间");
-//			GridData gridGroup = new GridData(GridData.FILL_HORIZONTAL);
-//	
-//			gridGroup.horizontalSpan = 3;
-//			gridGroup.verticalSpan = 5;
-//			gridGroup.horizontalIndent = 20;
-//			groupPlayTime.setLayoutData(gridGroup);
-//			// 设置group分组框上组件,并对组件进行布局
-//			{
-//				groupPlayTime.setLayout(new GridLayout());
-//				/**
-//				 * 四个复选按钮在group分组框上布局完全相同，
-//				 * 故此可用下面同一种布局方式设置相同的属性参数进行布局
-//				 */
-//				GridData gridDataButton = new GridData(GridData.FILL_HORIZONTAL);
-//				gridDataButton.verticalSpan = 6;
-//				gridDataButton.horizontalIndent = 6;
-//				final Combo combo1 = new Combo(groupPlayTime, SWT.NONE);
-//				// 在下拉框中设置下拉项
-//				combo1.setItems(new String[] {"1分钟", "5分钟","10分钟", "30分钟"});
-//				combo1.select(0);
-//				combo1.setLayoutData(gridDataButton);
-//				combo1.addSelectionListener(new SelectionAdapter() {
-//					@Override
-//					public void widgetSelected(SelectionEvent e) {
-//						keepRingTime = combo1.getText();
-//					}
-//				});
-//			}
-//		}
+		{
+			GridData gridButtonEmail = new GridData(GridData.FILL_HORIZONTAL);
+			// 水平抢占5列
+			gridButtonEmail.horizontalSpan = 5;
+			// 垂直抢占5列
+			gridButtonEmail.verticalSpan = 5;
+			// 距离comp1左边框20个像素
+			gridButtonEmail.horizontalIndent = 20;
+			// 定义button2复选框按钮，并对其进行布局
+			final Button btnSendEmail = new Button(comp1, SWT.CHECK);
+			btnSendEmail.setText("测试结束发送邮件");
+			if (sendEmail.equals("true")) {
+				btnSendEmail.setSelection(true);
+			} else {
+				btnSendEmail.setSelection(false);
+			}
+			btnSendEmail.setLayoutData(gridButtonEmail);
+			btnSendEmail.setEnabled(false);
+			btnSendEmail.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					if (btnSendEmail.getSelection()) {
+						sendEmail = "true";
+					} else {
+						sendEmail = "false";
+					}
+				}
+			});
+			final Group groupEmailSettings = new Group(comp1, SWT.NONE);
+			groupEmailSettings.setText("邮件设置");
+			GridData gridGroupEmail = new GridData(GridData.FILL_HORIZONTAL);
+	
+			gridGroupEmail.horizontalSpan = 3;
+			gridGroupEmail.verticalSpan = 5;
+			gridGroupEmail.horizontalIndent = 20;
+			groupEmailSettings.setLayoutData(gridGroupEmail);
+		}
 		
 	}
 
